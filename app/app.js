@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var products_1 = require("./products");
-//CreateProveedor("A","Direccion de A","1")
-products_1.CreateProduct("A", "Mi super producto", 20, 30, 100);
+var proveedor_1 = require("./proveedor");
+proveedor_1.Createproved("Acosa", "Colonia Tepeyac");
+//Createproduct("Acosa","Servidor",25000,15000);

@@ -37,49 +37,37 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose = require("mongoose");
-var url = "mongodb+srv://sjavila012:(sergiocolita1)@cluster0-9uoro.mongodb.net/test?retryWrites=true&w=majority";
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err) {
-    if (err) {
-        console.log(err.message);
-    }
-    else {
-        console.log("Conexion exitosa");
-    }
-});
+var proveedor_1 = require("./proveedor");
+var helpers_1 = require("./helpers");
 var producSchema = new mongoose.Schema({
-    produc_id: { type: Number, required: true },
     produc_name: { type: String, required: true },
     precio_vent: { type: Number, required: true },
-    precio_costv: { type: Number, required: true },
-    proveedor: { type: mongoose.Schema.Types.ObjectId, ref: "Proveedor" }
+    precio_cost: { type: Number, required: true },
+    proveedor: { type: mongoose.Schema.Types.ObjectId, ref: "proveedor" }
 });
-exports.Producto = mongoose.model("Producto", ProductoSchema);
-exports.CreateProduct = function (nameProveedor, name, precio_compra, precio_venta, cantidad) {
+exports.Producto = mongoose.model("Producto", producSchema);
+exports.Createproduct = function (nombreproveedor, produc_name, precio_vent, precio_cost) {
     return __awaiter(this, void 0, void 0, function () {
-        var prov, p;
+        var proved, s;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: 
-                //Conectar con la base de datos
-                return [4 /*yield*/, connectMongoDB];
+                case 0: return [4 /*yield*/, helpers_1.connectMongoDB];
                 case 1:
-                    //Conectar con la base de datos
                     _a.sent();
-                    return [4 /*yield*/, getProveedor(nameProveedor)];
+                    return [4 /*yield*/, proveedor_1.getProveedor(nombreproveedor)];
                 case 2:
-                    prov = _a.sent();
-                    p = new exports.Producto();
-                    p.name = name;
-                    p.precio_compra = precio_compra;
-                    p.precio_venta = precio_venta;
-                    p.cantidad = cantidad;
-                    p.proveedor = prov;
-                    p.save(function (err) {
+                    proved = _a.sent();
+                    s = new exports.Producto();
+                    s.produc_name = produc_name;
+                    s.precio_vent = precio_vent;
+                    s.precio_cost = precio_cost;
+                    s.proveedor = proved;
+                    s.save(function (err) {
                         if (err) {
                             console.log(err.message);
                         }
                         else {
-                            console.log(p);
+                            console.log(s);
                         }
                     });
                     return [2 /*return*/];

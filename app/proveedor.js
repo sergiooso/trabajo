@@ -38,30 +38,28 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose = require("mongoose");
 var helpers_1 = require("./helpers");
-var ProveedorSchema = new mongoose.Schema({
+var proveedorSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    tipo: { type: String, required: true },
-    direccion: { type: String, required: false }
+    direccion: { type: String, required: true }
 });
-exports.Proveedor = mongoose.model("Proveedor", ProveedorSchema);
-exports.CreateProveedor = function (name, direccion, tipo) {
+exports.Proveedor = mongoose.model("proveedor", proveedorSchema);
+exports.Createproved = function (nombre, direccion) {
     return __awaiter(this, void 0, void 0, function () {
-        var newOne;
+        var newONE;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, helpers_1.connectMongoDB];
                 case 1:
                     _a.sent();
-                    newOne = new exports.Proveedor();
-                    newOne.name = name;
-                    newOne.direccion = direccion;
-                    newOne.tipo = tipo;
-                    newOne.save(function (err) {
+                    newONE = new exports.Proveedor();
+                    newONE.nombre = nombre;
+                    newONE.direccion = direccion;
+                    newONE.save(function (err) {
                         if (err) {
-                            console.log(err.message);
+                            console.log(err.massage);
                         }
                         else {
-                            console.log(newOne);
+                            console.log(newONE);
                         }
                     });
                     return [2 /*return*/];

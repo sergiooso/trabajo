@@ -1,7 +1,5 @@
-import {CreateProveedor} from "./proveedor"
-import {CreateProduct} from "./producto"
+import {Createproved} from "./proveedor"
+import {Createproduct} from "./producto"
 
-//CreateProveedor("A","Direccion de A","1")
-
-CreateProduct("A","Mi super producto",20,30,100);
-
+Createproved("Acosa","Colonia Tepeyac");
+//Createproduct("Acosa","Servidor",25000,15000);
